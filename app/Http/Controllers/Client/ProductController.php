@@ -11,11 +11,7 @@ class ProductController extends Controller
     const PER_PAGE=6;
     public function detail($id)
     {
-        // $product = Product::findOrFail($id);
 
-        // return view('client.detail', [
-        //     'product' => $product
-        // ]);
         return view('client.detail');
     }
 
