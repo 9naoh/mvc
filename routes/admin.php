@@ -37,6 +37,7 @@ Route::group(['midleware' => 'auth'], function() {
         'parameters' => ['users' => 'id']
     ]);
     
+    
     Route::get('orders/processed',[
         'as' => 'admin.orders.processed',
         'uses' => 'OrderController@processed'
