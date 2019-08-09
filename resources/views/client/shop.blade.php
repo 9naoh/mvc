@@ -409,10 +409,10 @@
 				};
 				$.ajax({
 					url:'/gio-hang/add',
-					method: 'POST',
 					data: data,
-					success: function() {
-
+					method: "POST",
+					success: function(scs) {
+						$('.cart-quantity').text(scs.quantity);
 					},
 					error: function() {
 

@@ -34,6 +34,18 @@ class CartController extends Controller
             'quantity' => $request->quantity,
             'attributes' => array()
         ));
-        return response()->json([],204);
+        return response()->json(['quantity' => Cart::getTotalQuantity()],204);
+    }
+    public function update(Request $request)
+    {
+        Cart::update($request->id, array(
+            'quantity' => array(
+                'relative' => false,
+                'value' => $request->quantity
+            ),
+        ));
+        $summedPrice = Cart::get($request->id)->getPriceSum();
+
+        return response()->json(['summedPrice'=>number_format($summedPrice)], 200);
     }
 }
