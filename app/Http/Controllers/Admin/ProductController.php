@@ -78,7 +78,7 @@ class ProductController extends Controller
             $destinationDir = public_path('media/product');
             $filename = uniqid('vietpro').'.'.$request->avatar->extension();
             $request->avatar->move($destinationDir, $filename);
-            $attributes['avatar'] = $filename;
+            $attributes['avatar'] = '/media/product/'.$filename;
         };
 
         $product = Product::create($attributes);

@@ -32,7 +32,9 @@ class CartController extends Controller
             'name' => $product->name,
             'price' => $product->price,
             'quantity' => $request->quantity,
-            'attributes' => array()
+            'attributes' => array(
+                'avatar' => $product->avatar
+            )
         ));
         return response()->json(['quantity' => Cart::getTotalQuantity()],204);
     }
@@ -46,6 +48,9 @@ class CartController extends Controller
         ));
         $summedPrice = Cart::get($request->id)->getPriceSum();
 
-        return response()->json(['summedPrice'=>number_format($summedPrice)], 200);
+        return response()->json([
+            'summedPrice'=>number_format($summedPrice),
+            'subTotal' => number_format(Cart::getSubTotal())
+        ], 200);
     }
 }

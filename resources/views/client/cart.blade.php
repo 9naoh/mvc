@@ -44,7 +44,7 @@
 							<div class="product-cart">
 								<div class="one-forth">
 									<div class="product-img">
-										<img class="img-thumbnail cart-img" src="/assets/client/images/ao-so-mi-hoa-tiet-den-asm1223-10191.jpg">
+										<img class="img-thumbnail cart-img" src="{{ $item->attributes->avatar }}">
 									</div>
 									<div class="detail-buy">
 										<h4>Mã : {{ $item->id }}</h4>
@@ -123,7 +123,7 @@
 								<div class="col-md-3 col-md-push-1 text-center">
 									<div class="total">
 										<div class="sub">
-											<p><span>Tổng:</span> <span>{{ number_format(Cart::getSubTotal()) }} đ</span></p>
+											<p><span>Tổng:</span> <span class="sub-total">{{ number_format(Cart::getSubTotal()) }} đ</span></p>
 										</div>
 										<div class="grand-total">
 											<p><span><strong>Tổng cộng:</strong></span> <span>{{ number_format(Cart::getTotal()) }} đ</span></p>
@@ -163,6 +163,7 @@
 					method: "POST",
 					success:function(scs) {
 						_this.parents('.product-cart').find('.summed-price').text(`${scs.summedPrice} d`);
+						$('.sub-total').text(`${scs.subTotal} d`)
 					},
 					error: function(){
 
