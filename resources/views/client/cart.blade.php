@@ -69,7 +69,7 @@
 								</div>
 								<div class="one-eight text-center">
 									<div class="display-tc">
-										<a href="#" class="closed"></a>
+										<a href="#" class="closed btn-remove-product" data-id="{{ $item->id }}" ></a>
 									</div>
 								</div>
 							</div>
@@ -127,7 +127,7 @@
 										</div>
 										<div class="grand-total">
 											<p><span><strong>Tổng cộng:</strong></span> <span>{{ number_format(Cart::getTotal()) }} đ</span></p>
-											<a href="checkout.html" class="btn btn-primary">Thanh toán <i
+											<a href="/gio-hang/thanh-toan" class="btn btn-primary">Thanh toán <i
 													class="icon-arrow-right-circle"></i></a>
 										</div>
 									</div>
@@ -148,6 +148,27 @@
 				});
 		$(document).ready(function () {
 			
+			$('.btn-remove-product').on('click', function(e) {
+				e.preventDefault();
+				let id= $(this).attr('data-id');
+				let _this = $(this);
+				if (confirm('ban co chac muon xoa khong?')) {
+					$.ajax({
+						url: '/gio-hang/destroy',
+						method: 'POST',
+						data: {
+							id: id
+						},
+						success: function() {
+							_this.parents('.product-cart').remove();
+						},
+						error: function() {
+
+						},
+					});
+				}
+				
+			});
 
 			$('.input-quantity').change(function() {
 				let data = {

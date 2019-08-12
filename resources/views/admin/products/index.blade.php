@@ -52,7 +52,7 @@
 													<td>{{ $product->id }}</td>
 													<td>
 														<div class="row">
-															<div class="col-md-3"><img src="/media/product/{{ $product->avatar }}" alt="Áo đẹp" width="100px" class="thumbnail"></div>
+															<div class="col-md-3"><img src="{{ $product->avatar }}" alt="Áo đẹp" width="100px" class="thumbnail"></div>
 															<div class="col-md-9">
 																<p><strong>Mã sản phẩm :{{ $product->id }}1</strong></p>
 																<p>Ten San Pham:{{ $product->name }}</p>		
