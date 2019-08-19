@@ -6,8 +6,6 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-9 col-md-push-3">
-
-
 						<div class="row row-pb-lg">
 							@forelse ($products as $product)
 									<div class="col-md-4 text-center">
