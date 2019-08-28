@@ -13,9 +13,9 @@
 */
 // admin
 
-Route::group(['midleware' => 'auth'], function() {
+Route::group(['middleware' => 'auth'], function() {
 
-    Route::get('', [
+    Route::get('/', [
         'as' => 'admin.dashboard.index',
         'uses' => 'DashboardController@index'
     ]);
